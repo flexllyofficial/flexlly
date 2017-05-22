@@ -1,3 +1,5 @@
-angular.module('useAppFlex').controller('useAppFlexCtrl', function($scope){
-  $scope.HelloWorld = "HelloWorld";
+angular.module('useAppFlex').controller('useAppFlexCtrl', function($scope, $mdMenu){
+
+  $scope.styleInitDiv = 'flexDiv';
+
 })

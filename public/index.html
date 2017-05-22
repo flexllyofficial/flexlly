@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="useAppFlex" ng-controller="useAppFlexCtrl">
   <head>
     <meta charset="utf-8">
     <title>Flexlly</title>
+
+    <!-- style -->
+
+    <!-- master css -->
+    <link rel="stylesheet" href="style/appUseFlexStyle.css">
+
+    <!-- angular-material -->
+    <link rel="stylesheet" href="style/angular-material/angular-material.css">
+
+    <!-- action -->
 
     <!-- jquery -->
     <script src="libs/jquery/jquery-3.2.1.min.js"></script>
@@ -29,10 +39,38 @@
     <!-- useAppFlexCtrl -->
     <script src="action/controllers/useAppFlexCtrl.js"></script>
 
-  </head>
-  <body ng-app="useAppFlex" ng-controller="useAppFlexCtrl">
+    <!-- useAppFlexDirective -->
+    <script src="action/directives/useAppFlexDirective.js"></script>
 
-    {{HelloWorld}}
+    <!-- components -->
+
+    <!-- containeres -->
+    <script src="action/directives/containeres/dynamicDiv.js"></script>
+
+    <!-- graphics -->
+    <script src="action/directives/graphics/dynamicContOpenMenu.js"></script>
+
+  </head>
+  <body>
+
+          <md-menu>
+
+              <div ng-class="styleInitDiv" class="teste" ng-click="$mdMenu.open($event)" use-app-flex-directive>
+                ops
+              </div>
+
+            <md-menu-content>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdMenu.open($event)">New</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button ng-click="ctrl.sampleAction('New Document', $event)">Document</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
 
   </body>
 </html>
