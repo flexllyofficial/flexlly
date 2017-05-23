@@ -19,7 +19,9 @@
     <!-- <script src="libs/jquery/jquery-mask-money.js"></script> -->
 
     <!-- angular -->
-    <script src="libs/angular/angular.min.js"></script>
+    <!-- <script src="libs/angular/angular.min.js"></script> -->
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
+
     <script src="libs/angular/angular-animate.min.js"></script>
     <script src="libs/angular/angular-sanitize.min.js"></script>
     <script src='libs/angular/angular-route.min.js'></script>
@@ -42,35 +44,26 @@
     <!-- useAppFlexDirective -->
     <script src="action/directives/useAppFlexDirective.js"></script>
 
-    <!-- components -->
-
-    <!-- containeres -->
-    <script src="action/directives/containeres/dynamicDiv.js"></script>
+    <!-- components/directives -->
 
     <!-- graphics -->
-    <script src="action/directives/graphics/dynamicContOpenMenu.js"></script>
+    <script src="action/directives/graphics/divActionMenu.js"></script>
+
+    <!-- components/services -->
+
+    <!-- graphics -->
+    <script src="action/services/graphics/dynamicContOpenMenu.js"></script>
+    <script src="action/services/graphics/dynamicSubOpenMenu.js"></script>
 
   </head>
   <body>
 
-          <md-menu>
+
 
               <div ng-class="styleInitDiv" class="teste" ng-click="$mdMenu.open($event)" use-app-flex-directive>
                 ops
               </div>
 
-            <md-menu-content>
-              <md-menu-divider></md-menu-divider>
-              <md-menu-item>
-                <md-menu>
-                  <md-button ng-click="$mdMenu.open($event)">New</md-button>
-                  <md-menu-content>
-                    <md-menu-item><md-button ng-click="ctrl.sampleAction('New Document', $event)">Document</md-button></md-menu-item>
-                  </md-menu-content>
-                </md-menu>
-              </md-menu-item>
-            </md-menu-content>
-          </md-menu>
 
   </body>
 </html>

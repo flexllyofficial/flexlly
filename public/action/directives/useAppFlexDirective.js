@@ -10,7 +10,7 @@ angular.module('useAppFlex').directive('useAppFlexDirective', function($compile)
 
           var currentElement = angular.element(this);
 
-          element.attr(toCallDynamicDirective + '-f', '');
+          element.attr(toCallDynamicDirective + '-action-menu', '');
 
           $compile(element)(scope);
 
