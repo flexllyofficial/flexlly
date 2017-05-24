@@ -5,19 +5,24 @@ angular.module('useAppFlex').directive('useAppFlexDirective', function($compile)
 
         if(!event.isPropagationStopped()){
 
-          var toCallDynamicDirective = this.nodeName;
-          alert(toCallDynamicDirective);
+          var oi = $(element).attr('aria-expanded');
 
-          var currentElement = angular.element(this);
+          console.log(oi);
+          if (oi === undefined) {
 
-          element.attr(toCallDynamicDirective + '-action-menu', '');
+            var toCallDynamicDirective = this.nodeName;
+            alert(toCallDynamicDirective);
 
-          $compile(element)(scope);
+            var currentElement = angular.element(this);
 
-          return false;
+            element.attr(toCallDynamicDirective + '-action-menu', '');
 
+            $compile(element)(scope);
+
+            return false;
+
+          }
         }
-
       })
     }
   }

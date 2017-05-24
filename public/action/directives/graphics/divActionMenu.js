@@ -1,10 +1,9 @@
 angular.module('useAppFlex').directive('divActionMenu', function() {
   return {
-    // template: '<header style="background-color: blue;" use-app-flex-directive>{{teste}}</>',
-    // link: function(scope, element, attr){
-    //
-    // },
-    controller: function($scope, $element, $compile, $mdCompiler, dynamicContOpenMenu, dynamicSubOpenMenu) {
+    controller: function($scope, $element, $compile, dynamicContOpenMenu, dynamicSubOpenMenu) {
+
+      $($element).removeAttr('div-action-menu');
+
       $($element.wrap(
       dynamicContOpenMenu.openTagContOpenMenu()
       +
@@ -19,18 +18,12 @@ angular.module('useAppFlex').directive('divActionMenu', function() {
         dynamicSubOpenMenu.closeTagSubOpenMenu()
       ));
 
+        var els = $element[0].parentElement.offsetParent.offsetParent;
 
-      var els = $($element.parent());
-      var els = angular.element(els);
-      console.log(els);
+        els = angular.element(els);
+        console.log(els);
+        $compile(els)($scope);
 
-
-      $mdCompiler.compile({
-        contentElement: els
-      }).then(function (compileData) {
-        compileData.element // Content Element (same as above)
-        compileData.link // This does nothing when using a contentElement.
-      });
     }
   }
 })
