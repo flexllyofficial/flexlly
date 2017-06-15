@@ -13,8 +13,93 @@ angular.module('useAppFlex').directive('divActionMenu', function() {
       $($element.after(
         dynamicSubOpenMenu.openTagSubOpenMenu()
         +
-        '<md-button ng-click="$mdMenu.open($event)">New</md-button><span></span>'
+        '<center style="font-size:13px;">Opções principais</center>'
         +
+        '<md-menu-divider></md-menu-divider>'
+
+        +
+        '<md-menu-item>'
+        +
+        '<md-menu>'
+
+        +
+        '<md-button ng-click="$mdMenu.open()">New</md-button>'
+        +
+        '<md-menu-content><md-menu-item><md-menu><md-button ng-click="$mdMenu.open()">New</md-button>'
+        +
+        '<md-menu-content>'
+        +
+          '<md-menu-item>'
+          +
+            '<md-menu>'
+              +
+              '<md-button ng-click="$mdMenu.open()">New</md-button>'
+              +
+            '</md-menu>'
+            +
+          '</md-menu-item>'
+          +
+        '</md-menu-content>'
+        +
+        '</md-menu></md-menu-item></md-menu-content>'
+        +
+
+        '</md-menu>'
+        +
+        '</md-menu-item>'
+        +
+
+        '<md-menu-item>'
+        +
+        '<md-menu>'
+
+        +
+        '<md-button ng-click="$mdMenu.open()">New</md-button>'
+        +
+        '<md-menu-content><md-menu-item><md-menu><md-button ng-click="$mdMenu.open()">out</md-button>'
+        +
+        '<md-menu-content>'
+        +
+          '<md-menu-item>'
+          +
+            '<md-menu>'
+              +
+              '<md-button ng-click="$mdMenu.open()">New</md-button>'
+              +
+            '</md-menu>'
+            +
+          '</md-menu-item>'
+          +
+        '</md-menu-content>'
+        +
+        '</md-menu></md-menu-item></md-menu-content>'
+        +
+
+        '</md-menu>'
+        +
+        '</md-menu-item>'
+        +
+
+        // '<md-button ng-click="$mdMenu.open()">New</md-button>'
+        // +
+        // '<md-menu-content><md-menu-item><md-menu><md-button ng-click="$mdMenu.open()">out</md-button>'
+        // +
+        // '<md-menu-content>'
+        // +
+        //   '<md-menu-item>'
+        //   +
+        //     '<md-menu>'
+        //       +
+        //       '<md-button ng-click="$mdMenu.open()">New</md-button>'
+        //       +
+        //     '</md-menu>'
+        //     +
+        //   '</md-menu-item>'
+        //   +
+        // '</md-menu-content>'
+        // +
+        // '</md-menu></md-menu-item></md-menu-content>'
+        // +
         dynamicSubOpenMenu.closeTagSubOpenMenu()
       ));
 

@@ -1,9 +1,9 @@
 angular.module('useAppFlex').factory('dynamicSubOpenMenu', function(){
   var _openTagSubOpenMenu = function() {
-    return '<md-menu-content><md-menu-item><md-menu>';
+    return '<md-menu-content>';
   };
   var _closeTagSubOpenMenu = function() {
-    return '</></></>';
+    return '</>';
   }
 
   return {
