@@ -1,6 +1,14 @@
 angular.module('useAppFlex').directive('divActionMenu', function() {
   return {
-    controller: function($scope, $element, $compile, dynamicContOpenMenu, dynamicSubOpenMenu) {
+    controller: function($scope,
+      $element,
+      $compile,
+      dynamicContOpenMenu,
+      dynamicSubOpenMenu,
+      dynamicContItems
+    ) {
+
+      var classNameElement = $($element).attr("data-flex");
 
       $($element).removeAttr('div-action-menu');
 
@@ -11,95 +19,42 @@ angular.module('useAppFlex').directive('divActionMenu', function() {
       ));
 
       $($element.after(
-        dynamicSubOpenMenu.openTagSubOpenMenu()
-        +
-        '<center style="font-size:13px;">Opções principais</center>'
-        +
-        '<md-menu-divider></md-menu-divider>'
 
-        +
-        '<md-menu-item>'
-        +
-        '<md-menu>'
+        dynamicSubOpenMenu.openTagSubOpenMenu(true, 'Opções DIV')
 
+        // +
+        // dynamicSubOpenMenu.openTagItemSubMenu()
         +
-        '<md-button ng-click="$mdMenu.open()">New</md-button>'
-        +
-        '<md-menu-content><md-menu-item><md-menu><md-button ng-click="$mdMenu.open()">New</md-button>'
-        +
-        '<md-menu-content>'
-        +
-          '<md-menu-item>'
+
+          dynamicContItems.openTagContItems(classNameElement, '')
+
+          // +
+          //   dynamicSubOpenMenu.openTagSubOpenMenu()
+          //   +
+          //     dynamicSubOpenMenu.openTagItemSubMenu()
+          //       +
+          //
+          //         '<md-button ng-click="$mdMenu.open()">New</md-button>'
+          //           +
+          //             dynamicSubOpenMenu.openTagSubOpenMenu()
+          //               +
+          //                 dynamicSubOpenMenu.openTagItemSubMenu()
+          //                   +
+          //                     '<md-button ng-click="$mdMenu.open()">New</md-button>'
+          //                     +
+          //                   dynamicSubOpenMenu.closeTagItemSubMenu()
+          //                 +
+          //               dynamicSubOpenMenu.closeTagSubOpenMenu()
+          //
+          //             +
+          //           dynamicSubOpenMenu.closeTagItemSubMenu()
+          //         +
+          //       dynamicSubOpenMenu.closeTagSubOpenMenu()
+          //
+            //   +
+            // dynamicSubOpenMenu.closeTagItemSubMenu()
           +
-            '<md-menu>'
-              +
-              '<md-button ng-click="$mdMenu.open()">New</md-button>'
-              +
-            '</md-menu>'
-            +
-          '</md-menu-item>'
-          +
-        '</md-menu-content>'
-        +
-        '</md-menu></md-menu-item></md-menu-content>'
-        +
 
-        '</md-menu>'
-        +
-        '</md-menu-item>'
-        +
-
-        '<md-menu-item>'
-        +
-        '<md-menu>'
-
-        +
-        '<md-button ng-click="$mdMenu.open()">New</md-button>'
-        +
-        '<md-menu-content><md-menu-item><md-menu><md-button ng-click="$mdMenu.open()">out</md-button>'
-        +
-        '<md-menu-content>'
-        +
-          '<md-menu-item>'
-          +
-            '<md-menu>'
-              +
-              '<md-button ng-click="$mdMenu.open()">New</md-button>'
-              +
-            '</md-menu>'
-            +
-          '</md-menu-item>'
-          +
-        '</md-menu-content>'
-        +
-        '</md-menu></md-menu-item></md-menu-content>'
-        +
-
-        '</md-menu>'
-        +
-        '</md-menu-item>'
-        +
-
-        // '<md-button ng-click="$mdMenu.open()">New</md-button>'
-        // +
-        // '<md-menu-content><md-menu-item><md-menu><md-button ng-click="$mdMenu.open()">out</md-button>'
-        // +
-        // '<md-menu-content>'
-        // +
-        //   '<md-menu-item>'
-        //   +
-        //     '<md-menu>'
-        //       +
-        //       '<md-button ng-click="$mdMenu.open()">New</md-button>'
-        //       +
-        //     '</md-menu>'
-        //     +
-        //   '</md-menu-item>'
-        //   +
-        // '</md-menu-content>'
-        // +
-        // '</md-menu></md-menu-item></md-menu-content>'
-        // +
         dynamicSubOpenMenu.closeTagSubOpenMenu()
       ));
 
