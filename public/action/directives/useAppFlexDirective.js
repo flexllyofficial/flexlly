@@ -7,7 +7,6 @@ angular.module('useAppFlex').directive('useAppFlexDirective', function($compile)
 
           var oi = $(element).attr('aria-expanded');
 
-          console.log(oi);
           if (oi === undefined) {
 
             var toCallDynamicDirective = this.nodeName;

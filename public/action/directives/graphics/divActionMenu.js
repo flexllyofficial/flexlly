@@ -1,11 +1,13 @@
 angular.module('useAppFlex').directive('divActionMenu', function() {
   return {
-    controller: function($scope,
+    controller: function(
+      $scope,
       $element,
       $compile,
       dynamicContOpenMenu,
       dynamicSubOpenMenu,
-      dynamicContItems
+      dynamicContItems,
+      dynamicContSubItems
     ) {
 
       var classNameElement = $($element).attr("data-flex");
@@ -18,6 +20,10 @@ angular.module('useAppFlex').directive('divActionMenu', function() {
       dynamicContOpenMenu.closeTagContOpenMenu()
       ));
 
+      var testeItems = {
+        FlexItems : 'FlexItems'
+      };
+
       $($element.after(
 
         dynamicSubOpenMenu.openTagSubOpenMenu(true, 'Opções DIV')
@@ -26,7 +32,11 @@ angular.module('useAppFlex').directive('divActionMenu', function() {
         // dynamicSubOpenMenu.openTagItemSubMenu()
         +
 
-          dynamicContItems.openTagContItems(classNameElement, '')
+          dynamicContItems.openContItems(
+            'FlexKey['+classNameElement+']',
+            'FlexRemove[action]',
+            testeItems
+            )
 
           // +
           //   dynamicSubOpenMenu.openTagSubOpenMenu()

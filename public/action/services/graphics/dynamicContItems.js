@@ -1,34 +1,53 @@
-angular.module('useAppFlex').factory('dynamicContItems', ['dynamicSubOpenMenu' , function(dynamicSubOpenMenu){
-  var _openTagContItems = function() {
+angular.module('useAppFlex').factory('dynamicContItems', ['dynamicSubOpenMenu', 'validationGraphics' , function(
+  dynamicSubOpenMenu,
+  validationGraphics
+  ){
+  var _openContItems = function() {
 
-    var availableContainersItems = [
-      'containers',
-      'style',
-      'actions'
-    ];
+      var availableContainersItems = {
+      FlexItems : 'FlexItems',
+      containers : 'containers',
+      style : 'style',
+      action : 'action'
+    }
 
-    var addContainersItems = new Array();
-    var ignoreItems = (arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments));
+    var argumentsFlex = (arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments));
+    var resultValidation = validationGraphics.valItems(argumentsFlex);
 
-    addContainersItems = availableContainersItems.filter(function(el) {
-      var keyRemove = ignoreItems.indexOf(el);
-      return keyRemove === -1;
-    })
+    if (resultValidation !== true) {
+      console.log(resultValidation);
+      return '';
+    }
+
+    if (validationGraphics.getType(argumentsFlex[1]) == 'string') {
+
+      var ignoreItems = validationGraphics.trimArray(argumentsFlex[1].split(/(?:\[|\])+/));
+      ignoreItems = ignoreItems[1];
+      ignoreItems = ignoreItems.split(',');
+
+      for(var index in ignoreItems) {
+        delete availableContainersItems[ignoreItems[index]];
+      }
+
+    }
 
     var resulCont = "";
-    
-    addContainersItems.forEach(function(nameButton){
-      resulCont += dynamicSubOpenMenu.openTagItemSubMenu()
 
-                          + '<md-button ng-click="$mdMenu.open()">' + nameButton + '</md-button>' +
+    for(var index in availableContainersItems) {
 
-                   dynamicSubOpenMenu.closeTagItemSubMenu();
-    })
+      if(availableContainersItems[index] != 'FlexItems') {
+        resulCont += dynamicSubOpenMenu.openTagItemSubMenu()
 
+                            + '<md-button ng-click="$mdMenu.open()">' + availableContainersItems[index] + '</md-button>' +
+
+                     dynamicSubOpenMenu.closeTagItemSubMenu();
+      }
+
+    }
     return resulCont;
   };
 
   return {
-    openTagContItems : _openTagContItems,
+    openContItems : _openContItems,
   }
 }])
