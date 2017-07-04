@@ -2,7 +2,7 @@ angular.module('useAppFlex').factory('dynamicContSubItems', ['dynamicSubOpenMenu
   dynamicSubOpenMenu,
   validationGraphics
   ){
-  var _openContItems = function() {
+  var _openContSubItems = function() {
 
     var availableContainersItems = {
       'FlexItems' : 'FlexItems',
@@ -40,10 +40,21 @@ angular.module('useAppFlex').factory('dynamicContSubItems', ['dynamicSubOpenMenu
 
                             + '<md-button ng-click="$mdMenu.open()">' + availableContainersItems[index] + '</md-button>' +
 
+                            dynamicSubOpenMenu.openTagSubOpenMenu(); +
+
+                            dynamicSubOpenMenu.openTagItemSubMenu(); +
+
+                                                + '<md-button ng-click="$mdMenu.open()">' + availableContainersItems[index] + '</md-button>' +
+
+                            dynamicSubOpenMenu.closeTagItemSubMenu(); +
+
+                            dynamicSubOpenMenu.closeTagSubOpenMenu(); +
+
                      dynamicSubOpenMenu.closeTagItemSubMenu();
       }
 
     }
+    console.log(resulCont);
     return resulCont;
   };
 

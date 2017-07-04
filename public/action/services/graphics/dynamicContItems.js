@@ -40,6 +40,16 @@ angular.module('useAppFlex').factory('dynamicContItems', ['dynamicSubOpenMenu', 
 
                             + '<md-button ng-click="$mdMenu.open()">' + availableContainersItems[index] + '</md-button>' +
 
+                            dynamicSubOpenMenu.openTagSubOpenMenu() +
+
+                            dynamicSubOpenMenu.openTagItemSubMenu() +
+
+                                                 '<md-button>' + 'teste' + '</md-button>' +
+
+                            dynamicSubOpenMenu.closeTagItemSubMenu() +
+
+                            dynamicSubOpenMenu.closeTagSubOpenMenu() +
+
                      dynamicSubOpenMenu.closeTagItemSubMenu();
       }
 
